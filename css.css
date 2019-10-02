@@ -1,0 +1,116 @@
+body{
+    background: gray;
+    width: 50%;
+    display: block;
+    margin :100px auto; 
+}
+* {
+    box-sizing: border-box;
+}
+input {
+    width: 100%;
+    /* display: block; */
+    margin :100px auto 0 auto; 
+    padding: 10px;
+    border: 10px solid white;
+    border-radius: 10px;
+    background: lightgray;
+    font-size: 20px;
+ }
+ input:focus{
+     background: gray;
+     outline : none;
+ }
+ .div1{
+     display: inline;
+ }
+ .div1::after{
+        content: "";
+        clear: both;
+        display: table;
+ }
+ .img1{
+    padding: 22px 12px 0;
+    float: right;
+    position: relative;
+    right: 0px;
+    top :-65px;
+ }
+ .divbig{
+     /* display: none ; */
+     background: white;
+     /* padding: 20px ; */
+     width: 100%;
+     margin-top:-53px;
+ }
+.img2{
+    float: left;
+    /* width: 5%; */
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.first{
+    color:lightgray;
+    text-decoration: none;
+    font-size:13px;
+    float: left;
+    width: 40%;
+    padding: 5px;
+}
+.secand{
+    font-size:13px;
+    float: right;
+    padding: 5px
+    /* width: 50%; */
+}
+a:link {
+    color:lightgray;
+  }
+  a:hover {
+    color: black;
+  }
+  
+.div2{
+    margin-bottom: -34px
+}
+.div2::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+hr{
+    color: black;
+    display: block;
+    
+    width: 80%
+}
+.img3{
+    float: left;
+    width: 30px;
+   height: 30px;
+}
+.img4{
+    display: none;
+    float: right;
+   width: 30px;
+   height: 30px;
+}
+ul li:hover  .img4{
+display: inline; 
+}
+ul li:hover {
+    background: lightgray;
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 4px; 
+    }
+    ul {
+      padding: 0px 15px;
+    }
+ul li {
+    list-style: none;
+    font-size: 20px;
+    /* border: 1px solid lightgray; */
+    padding: 10px;
+    border-radius: 4px; 
+}
