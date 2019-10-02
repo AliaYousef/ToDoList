@@ -11,6 +11,10 @@ var inputValueObj =[{value : document.getElementById('checValue').value , check 
 var t = document.createTextNode(inputValue);
 
 list.push(inputValueObj);
+list.forEach((item, i) => {
+  item.id = i + 1;
+});
+
 console.log(list);
 li.appendChild(t);
 li.setAttribute("class", "task");
@@ -39,22 +43,27 @@ for (i = mylist.length-1; i < mylist.length; i++) {
 }
 // close LI element on click
 var close = document.getElementsByClassName("img4");
-for (i = close.length-1; i <= close.length; i++) {
-  close[i].onclick = function() {
+for (i = close.length-1; i < close.length; i++) {
+  // console.log(i);
+  close[i].onclick = function  () {
   var li = this.parentElement;  
-  console.log(i-1);
-  console.log(list[(i-1)]);
-  list.splice((i-1) ,1);
   li.style.display = "none";
+  var x = list.find(function checkId (list){
+    return list.id >= (i);
+  });
+  console.log(x);
+  var y = list.findIndex(function checkId (list){
+    return list.id >= (i);});
+  console.log(y);
+  list.splice(y,1);
+  console.log(list)
 }
 
 }
 // conter 
-var task = document.getElementsByClassName("task").length;
+var task = list.length;
 console.log(task)
 document.getElementById('num').innerHTML = task + "task left";
-
-
 // document.getElementById("all").addEventListener("click", allChecked);
 //     function allChecked(){
 //         var all = document.getElementsByClassName("img3");
@@ -67,6 +76,6 @@ document.getElementById('num').innerHTML = task + "task left";
 //                 all[i].src = "unchecked.png";
 //             }
 //         }
-    
+   
 //       }
     }
