@@ -15,7 +15,7 @@ list.forEach((item, i) => {
   item.id = i + 1;
 });
 
-console.log(list);
+// console.log(list);
 li.appendChild(t);
 li.setAttribute("class", "task");
 li.setAttribute("id", "task");
@@ -44,38 +44,44 @@ for (i = mylist.length-1; i < mylist.length; i++) {
 // close LI element on click
 var close = document.getElementsByClassName("img4");
 for (i = close.length-1; i < close.length; i++) {
-  // console.log(i);
   close[i].onclick = function  () {
   var li = this.parentElement;  
   li.style.display = "none";
   var x = list.find(function checkId (list){
     return list.id >= (i);
   });
-  console.log(x);
+  // console.log(x);
   var y = list.findIndex(function checkId (list){
     return list.id >= (i);});
-  console.log(y);
+  // console.log(y);
   list.splice(y,1);
-  console.log(list)
+  // console.log(list);
+  var task = list.length;
+// console.log(task)
+document.getElementById('num').innerHTML = task + "  "+ "task left";
 }
 
+/// add cheched function 
+var checkList = document.getElementsByClassName("img3");
+for (i = checkList.length-1; i < checkList.length; i++) {
+  checkList[i].onclick = function  () {
+    // console.log(checkList[i].src);
+    console.log(( i));
+    if (list.check){
+// console.log(i);
+list.check= false ;
+checkList[( i-2)].src = "unchecked.png";
+    }else{
+  // console.log(11121222);
+  list.check = true ;
+  checkList[( i-2)].src = "check.png"
+    }
+    // console.log (checkList)
+  };
 }
-// conter 
+
 var task = list.length;
 console.log(task)
 document.getElementById('num').innerHTML = task + "task left";
-// document.getElementById("all").addEventListener("click", allChecked);
-//     function allChecked(){
-//         var all = document.getElementsByClassName("img3");
-//         for (i = 0; i < all.length; i++) {
-//             console.log(all[i].src);
-//             if (all[i].src.match("unchecked.png")){
-//                 all[i].src = "check.png";
-//             }
-//             if (all[i].src.match("check.png")){
-//                 all[i].src = "unchecked.png";
-//             }
-//         }
-   
-//       }
-    }
+}
+}
