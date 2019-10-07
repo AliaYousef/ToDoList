@@ -75,6 +75,11 @@ a:link {
 .div2{
     margin-bottom: -34px
 }
+.div3::after{
+    content: "";
+    clear: both;
+    display: table;
+}
 .div2::after{
     content: "";
     clear: both;
@@ -90,7 +95,9 @@ hr{
     float: left;
     width: 30px;
    height: 30px;
+   margin: -2px;
 }
+
 .img4{
     display: none;
     float: right;
@@ -115,4 +122,5 @@ ul li {
     /* border: 1px solid lightgray; */
     padding: 10px;
     border-radius: 4px; 
+    
 }

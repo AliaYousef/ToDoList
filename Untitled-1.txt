@@ -13,11 +13,11 @@ function move() {
   if (inputValue === '') {
     alert("You must write something!");
   } else {
-    var inputValueObj = {
+    var inputValueObj = [{
       value: document.getElementById('checValue').value,
       check: false,
       id: ++cunt
-    };
+    }];
     var t = document.createTextNode(inputValue);
     list.push(inputValueObj);
     li.appendChild(t);
@@ -48,55 +48,47 @@ function move() {
     }
   }
   // close LI element on click
-  function parIndex(list) {
-    for (i = close.length - 1; i < close.length; i++) {
-      list.findIndex(function (list) {
-        return list.id >= (i);
-      });
+  var close = document.getElementsByClassName("img4");
+  for (i = close.length - 1; i < close.length; i++) {
+    close[i].onclick = function () {
+      var li = this.parentElement;
+      li.remove();
+      var parentIndex = parIndex(list);
+      list.splice(parentIndex, 1);
+      var task = list.length;
+      document.getElementById('num').innerHTML = task + "  " + "task left";
     }
-  }
- 
-  $(".img4").click(function () {
-    $(this).parent().remove();
-   $()
-  });
-  /// add cheched function 
-  $(".img3").click(function () {
-    var ind2 = $(this).index();
-    if (list[ind2].check) {
-      $(this).attr("src", "unchecked.png");
-      $(this).parent().css("text-decoration", "none");
-      list[ind2].check = false;
-    } else {
-      $(this).attr("src", "check.png");
-      $(this).parent().css("text-decoration", "line-through");
-      list[ind2].check = true;
-    }
-  })
-  //// add all checked function
-  var checkList = document.getElementsByClassName("img3");
-  $("#all").click(function () {
-    for (i = 0; i < checkList.length; i++) {
-      $(".img3").attr("src", "check.png");
-      $(".task").css("text-decoration", "line-through");
-      list[i].check = true;
-    }
-  });
 
-/// add clear complete function
-  $("#clear").click(function () {
-    for (i = 0; i < list.length; i++) {
-      if (list[i].check) {
-        $("ul li:eq(" + i + ")").remove();
-        list.splice(i, 1);
+    function parIndex(list) {
+      for (i = close.length - 1; i < close.length; i++) {
+        list.findIndex(function (list) {
+          return list.id >= (i);
+        });
       }
     }
-  });
+    /// add cheched function 
+    var checkList = document.getElementsByClassName("img3");
+    for (i = checkList.length - 1; i < checkList.length; i++) {
+      checkList[i].onclick = function (key) {
+        
+        var li = this.parentElement;
+        console.log(list[i-2].id);
+        if (li.check) {
+          
+          li.setAttribute("class", "task");
+          li.check = false;
+          checkList[(i - 2)].src = "unchecked.png";
+        } else {
+          li.setAttribute("class", "img3cheched");
+          li.check = true;
+          checkList[(i - 2)].src = "check.png"
+        }
+      };
+    }
 
-
-  var task = list.length;
-  console.log(task)
-  document.getElementById('num').innerHTML = task + "task left";
-
+    var task = list.length;
+    console.log(task)
+    document.getElementById('num').innerHTML = task + "task left";
+  }
   console.log(list);
 }
